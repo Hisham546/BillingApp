@@ -3,8 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import {
     View,
     Image,
-    Text, Button,
-    StyleSheet, TouchableOpacity, FlatList,
+    Text, Keyboard,
+    StyleSheet, TouchableOpacity,
     TextInput
 }
     from "react-native";
@@ -13,28 +13,41 @@ import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function Dashboard({ navigation }) {
 
-    const [text, onChangeText] = React.useState('Useless Text');
-    const [number, onChangeNumber] = React.useState('');
+
     const [code, setCode] = React.useState('');
+
+    //- function that update the current entered number
     const handleNumberPress = (number) => {
         setCode(code + number);
     };
+
+    const success = () => {
+        if (code.length != '0') {
+            navigation.navigate('Final')
+        }
+        else {
+            Toast.show("Please enter a amount ", Toast.SHORT);
+
+        }
+    }
 
     return (
 
         <View style={styles.parentContainer}>
             <View style={styles.topView}>
-
+                <Text style={styles.amount}>Enter the final  amount</Text>
+                {/* editable is false so user cannot open default keyboard*/}
                 <TextInput
+                    editable={false}
                     style={styles.input}
-                    onChangeText={onChangeNumber}
                     value={code}
-                    placeholder="Enter the Amount"
+                    placeholder="Enter  Amount"
                     keyboardType="numeric"
                 />
             </View>
             <View style={styles.secondView}>
                 <View style={{ width: wp('100%'), alignItems: 'center', height: hp('32%') }}>
+                    {/*nested array with each array represent a row of values*/}
                     {[
                         [1, 2, 3],
                         [4, 5, 6],
@@ -59,7 +72,7 @@ export default function Dashboard({ navigation }) {
                                     }}
                                 >
                                     {item === 'backspace' ? (
-                                        <MaterialIcon name="backspace-outline" size={hp('3%')} color={'black'} />
+                                        <MaterialIcon name="backspace-outline" size={hp('3%')} color={'#A8A196'} />
                                     ) : (
                                         <Text style={styles.numberKey}>{item}</Text>
                                     )}
@@ -69,23 +82,17 @@ export default function Dashboard({ navigation }) {
                     ))}
                 </View>
                 <TouchableOpacity activeOpacity={0.90}
-                    onPress={() => navigation.navigate('Final')}
+                    onPress={() => success()}
                     style={styles.submitButton}>
-
-                    <Text style={{ color: '#fff', fontSize: hp('1.90%'), fontFamily: 'Roboto-Bold' }}>Submit</Text>
-
+                    <Text style={{ color: '#fff', fontSize: hp('1.90%') }}>Submit</Text>
                 </TouchableOpacity>
             </View>
         </View>
-
-
 
     );
 
 
 }
-
-
 
 
 const styles = StyleSheet.create({
@@ -95,26 +102,23 @@ const styles = StyleSheet.create({
         backgroundColor: '#EAEFF2'
     },
     input: {
-        height: 40,
-        margin: 12,
+        height: hp('7%'),
+        width: wp('90%'),
         borderWidth: 1,
-        padding: 10,
+        marginTop: hp('20'),
+        color: 'black'
     },
     topView: {
         width: wp('100'),
         height: hp('50'),
         backgroundColor: 'white',
-
+        alignItems: 'center',
         justifyContent: 'center'
-
-
     },
     secondView: {
         width: wp('100'),
         height: hp('50'),
         backgroundColor: 'white'
-
-
 
     },
     keyboard: {
@@ -132,7 +136,7 @@ const styles = StyleSheet.create({
     },
     submitButton: {
         height: hp('7%'),
-        width: wp('95%'),
+        width: wp('90%'),
         backgroundColor: '#2535cc',
         color: 'white',
         alignItems: 'center',
@@ -142,14 +146,10 @@ const styles = StyleSheet.create({
         elevation: 5,
         marginTop: hp('3')
     },
-    submitText: {
-        fontSize: hp('1.70%'),
-        fontFamily: 'Roboto-Bold',
-        color: 'white',
-        letterSpacing: wp('.10%'),
-    },
+    amount: {
+        fontSize: hp('1.80'),
+        color: 'black'
 
-
-
+    }
 
 })
