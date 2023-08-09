@@ -11,7 +11,7 @@ import {
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export default function Dashboard({ navigation }) {
+export default function Final({ }) {
 
     const [text, onChangeText] = React.useState('Useless Text');
     const [number, onChangeNumber] = React.useState('');
@@ -68,13 +68,6 @@ export default function Dashboard({ navigation }) {
                         </View>
                     ))}
                 </View>
-                <TouchableOpacity activeOpacity={0.90}
-                    onPress={() => navigation.navigate('Final')}
-                    style={styles.submitButton}>
-
-                    <Text style={{ color: '#fff', fontSize: hp('1.90%'), fontFamily: 'Roboto-Bold' }}>Submit</Text>
-
-                </TouchableOpacity>
             </View>
         </View>
 
@@ -112,7 +105,7 @@ const styles = StyleSheet.create({
     secondView: {
         width: wp('100'),
         height: hp('50'),
-        backgroundColor: 'white'
+        backgroundColor:'white'
 
 
 
@@ -129,24 +122,6 @@ const styles = StyleSheet.create({
         fontSize: hp('3'),
         color: 'black',
         fontWeight: '600'
-    },
-    submitButton: {
-        height: hp('7%'),
-        width: wp('95%'),
-        backgroundColor: '#2535cc',
-        color: 'white',
-        alignItems: 'center',
-        justifyContent: 'center',
-        alignSelf: 'center',
-        borderRadius: 1,
-        elevation: 5,
-        marginTop: hp('3')
-    },
-    submitText: {
-        fontSize: hp('1.70%'),
-        fontFamily: 'Roboto-Bold',
-        color: 'white',
-        letterSpacing: wp('.10%'),
     },
 
 

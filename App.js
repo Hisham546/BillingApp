@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Dashboard from './src/dashboard';
-
+import Final from './src/final';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +16,10 @@ const App = () => {
               options={{ headerShown: false }}
               name="Dashboard"
               component={Dashboard} />
-         
+        <Stack.Screen
+              options={{ headerShown: false }}
+              name="Final"
+              component={Final} />  
         </Stack.Navigator>
 
      </NavigationContainer>
