@@ -8,22 +8,22 @@ import Final from './src/final';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  return (
-     <NavigationContainer>
-        <Stack.Navigator>
-          
-           <Stack.Screen
-              options={{ headerShown: false }}
-              name="Dashboard"
-              component={Dashboard} />
-        <Stack.Screen
-              options={{ headerShown: false }}
-              name="Final"
-              component={Final} />  
-        </Stack.Navigator>
+   return (
+      <NavigationContainer>
+         <Stack.Navigator>
 
-     </NavigationContainer>
-  );
+            <Stack.Screen
+               options={{ headerShown: false }}
+               name="Dashboard"
+               component={Dashboard} />
+            <Stack.Screen
+               options={{ headerShown: false }}
+               name="Final"
+               component={Final} />
+         </Stack.Navigator>
+
+      </NavigationContainer>
+   );
 };
 
 export default App;

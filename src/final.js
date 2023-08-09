@@ -2,9 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 
 import {
     View,
-    Image,
-    Text, Button,
-    StyleSheet, TouchableOpacity, FlatList,
+    Text,
+    StyleSheet, TouchableOpacity,
     TextInput
 }
     from "react-native";
@@ -13,16 +12,18 @@ import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Toast from "react-native-simple-toast";
 
 export default function Final({ }) {
-    const [number, onChangeNumber] = React.useState('');
+
     const [code, setCode] = React.useState('');
 
+
+    //- function that update the current entered number
     const handleNumberPress = (number) => {
         setCode(code + number);
     };
 
     const success = () => {
         if (code.length != '0') {
-            Toast.show("You're successfully verified billing amount ", Toast.SHORT);
+            Toast.show("You're successfully generated billing amount ", Toast.SHORT);
         } else {
             Toast.show("Please enter an amount ! ", Toast.SHORT);
 
@@ -95,10 +96,7 @@ export default function Final({ }) {
             </View>
         </View>
     );
-
-
 }
-
 
 
 const styles = StyleSheet.create({
@@ -113,7 +111,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         marginTop: hp('5'),
         color: 'black'
-
     },
     topView: {
         width: wp('100'),
@@ -156,13 +153,10 @@ const styles = StyleSheet.create({
         fontSize: hp('2.50'),
         color: 'black',
         fontFamily: 'Manrope-Bold'
-
     },
     successfullView: {
         width: wp('100'),
         height: hp('50'),
-
-
 
     }
 
