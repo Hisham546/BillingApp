@@ -54,7 +54,7 @@ export default function Final({ }) {
                         [1, 2, 3],
                         [4, 5, 6],
                         [7, 8, 9],
-                        ['', 0, 'backspace'],
+                        ['.', 0, 'backspace'],
                         ['#', 'space', ','],
                     ].map((row, rowIndex) => (
                         <View key={rowIndex} style={{ flexDirection: 'row' }}>
