@@ -16,6 +16,7 @@ export default function Dashboard({ navigation }) {
 
     const [code, setCode] = React.useState('');
 
+
     //- function that update the current entered number
     const handleNumberPress = (number) => {
         setCode(code + number);

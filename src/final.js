@@ -15,6 +15,7 @@ import Toast from "react-native-simple-toast";
 export default function Final({ }) {
     const [number, onChangeNumber] = React.useState('');
     const [code, setCode] = React.useState('');
+
     const handleNumberPress = (number) => {
         setCode(code + number);
     };
@@ -31,10 +32,11 @@ export default function Final({ }) {
     return (
 
         <View style={styles.parentContainer}>
-             <View style={styles.topView}>
-                <Text style={styles.amount}>Confirm</Text>
+
+            <View style={styles.topView}>
+                <Text style={styles.amount}>Confirm the amount</Text>
                 <View style={{ width: wp('100'), height: hp('17'), justifyContent: 'center', alignItems: 'center', marginTop: hp('20') }}>
-                    <Text style={{ fontSize: hp('1.60'), color: 'black', fontFamily: 'Manrope-Medium',marginTop:hp('8') }}>Enter the billing amount</Text>
+                    <Text style={{ fontSize: hp('1.60'), color: 'black', fontFamily: 'Manrope-Medium', marginTop: hp('8') }}>Enter the final amount</Text>
                     {/* editable is false so user cannot open default keyboard*/}
                     <TextInput
                         editable={false}
@@ -88,7 +90,7 @@ export default function Final({ }) {
                 <TouchableOpacity activeOpacity={0.90}
                     onPress={() => success()}
                     style={styles.submitButton}>
-                    <Text style={{ color: '#fff', fontSize: hp('1.90%'),fontFamily:'Manrope-Medium' }}>Confirm</Text>
+                    <Text style={{ color: '#fff', fontSize: hp('1.90%'), fontFamily: 'Manrope-Medium' }}>Confirm</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -153,7 +155,14 @@ const styles = StyleSheet.create({
     amount: {
         fontSize: hp('2.50'),
         color: 'black',
-        fontFamily:'Manrope-Bold'
+        fontFamily: 'Manrope-Bold'
+
+    },
+    successfullView: {
+        width: wp('100'),
+        height: hp('50'),
+
+
 
     }
 
