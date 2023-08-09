@@ -10,7 +10,7 @@ import {
     from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import Toast from "react-native-simple-toast";
 export default function Dashboard({ navigation }) {
 
 
@@ -26,7 +26,7 @@ export default function Dashboard({ navigation }) {
             navigation.navigate('Final')
         }
         else {
-            Toast.show("Please enter a amount ", Toast.SHORT);
+            Toast.show("Please enter an amount to continue ! ", Toast.SHORT);
 
         }
     }
@@ -35,15 +35,18 @@ export default function Dashboard({ navigation }) {
 
         <View style={styles.parentContainer}>
             <View style={styles.topView}>
-                <Text style={styles.amount}>Enter the final  amount</Text>
-                {/* editable is false so user cannot open default keyboard*/}
-                <TextInput
-                    editable={false}
-                    style={styles.input}
-                    value={code}
-                    placeholder="Enter  Amount"
-                    keyboardType="numeric"
-                />
+                <Text style={styles.amount}>Billing Page</Text>
+                <View style={{ width: wp('100'), height: hp('17'), justifyContent: 'center', alignItems: 'center', marginTop: hp('20') }}>
+                    <Text style={{ fontSize: hp('1.60'), color: 'black', fontFamily: 'Manrope-Medium' }}>Enter the billing amount</Text>
+                    {/* editable is false so user cannot open default keyboard*/}
+                    <TextInput
+                        editable={false}
+                        style={styles.input}
+                        value={code}
+                        placeholder="Enter  Amount"
+                        keyboardType="numeric"
+                    />
+                </View>
             </View>
             <View style={styles.secondView}>
                 <View style={{ width: wp('100%'), alignItems: 'center', height: hp('32%') }}>
@@ -84,7 +87,7 @@ export default function Dashboard({ navigation }) {
                 <TouchableOpacity activeOpacity={0.90}
                     onPress={() => success()}
                     style={styles.submitButton}>
-                    <Text style={{ color: '#fff', fontSize: hp('1.90%') }}>Submit</Text>
+                    <Text style={{ color: '#fff', fontSize: hp('1.90%'), fontFamily: 'Manrope-Medium' }}>Submit</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -105,8 +108,9 @@ const styles = StyleSheet.create({
         height: hp('7%'),
         width: wp('90%'),
         borderWidth: 1,
-        marginTop: hp('20'),
-        color: 'black'
+        color: 'black',
+        marginTop: hp('2')
+
     },
     topView: {
         width: wp('100'),
@@ -147,8 +151,11 @@ const styles = StyleSheet.create({
         marginTop: hp('3')
     },
     amount: {
-        fontSize: hp('1.80'),
-        color: 'black'
+        fontSize: hp('2.50'),
+        color: 'black',
+        fontFamily: 'Manrope-Bold'
+
+
 
     }
 

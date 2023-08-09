@@ -21,9 +21,9 @@ export default function Final({ }) {
 
     const success = () => {
         if (code.length != '0') {
-            Toast.show("Successfully completed ", Toast.SHORT);
+            Toast.show("You're successfully verified billing amount ", Toast.SHORT);
         } else {
-            Toast.show("Please enter a amount ", Toast.SHORT);
+            Toast.show("Please enter an amount ! ", Toast.SHORT);
 
         }
     }
@@ -31,16 +31,19 @@ export default function Final({ }) {
     return (
 
         <View style={styles.parentContainer}>
-            <View style={styles.topView}>
-                <Text style={styles.amount}>Enter the final amount</Text>
-                <TextInput
-                    editable={false}
-                    style={styles.input}
-                    value={code}
-                    onChangeText={onChangeNumber}
-                    placeholder="Enter final Amount"
-                    keyboardType="numeric"
-                />
+             <View style={styles.topView}>
+                <Text style={styles.amount}>Confirm</Text>
+                <View style={{ width: wp('100'), height: hp('17'), justifyContent: 'center', alignItems: 'center', marginTop: hp('20') }}>
+                    <Text style={{ fontSize: hp('1.60'), color: 'black', fontFamily: 'Manrope-Medium',marginTop:hp('8') }}>Enter the billing amount</Text>
+                    {/* editable is false so user cannot open default keyboard*/}
+                    <TextInput
+                        editable={false}
+                        style={styles.input}
+                        value={code}
+                        placeholder="Enter  Amount"
+                        keyboardType="numeric"
+                    />
+                </View>
             </View>
             <View style={styles.secondView}>
                 <View style={{ width: wp('100%'), alignItems: 'center', height: hp('32%') }}>
@@ -85,7 +88,7 @@ export default function Final({ }) {
                 <TouchableOpacity activeOpacity={0.90}
                     onPress={() => success()}
                     style={styles.submitButton}>
-                    <Text style={{ color: '#fff', fontSize: hp('1.90%') }}>Confirm</Text>
+                    <Text style={{ color: '#fff', fontSize: hp('1.90%'),fontFamily:'Manrope-Medium' }}>Confirm</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -106,7 +109,7 @@ const styles = StyleSheet.create({
         height: hp('7%'),
         width: wp('90%'),
         borderWidth: 1,
-        marginTop: hp('20'),
+        marginTop: hp('5'),
         color: 'black'
 
     },
@@ -148,8 +151,9 @@ const styles = StyleSheet.create({
         marginTop: hp('6')
     },
     amount: {
-        fontSize: hp('1.80'),
-        color: 'black'
+        fontSize: hp('2.50'),
+        color: 'black',
+        fontFamily:'Manrope-Bold'
 
     }
 
